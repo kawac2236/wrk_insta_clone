@@ -29,5 +29,13 @@ module WrkInstaClone
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    # 余計なファイルを生成しない
+    config.generators do |g|
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+      g.test_framework false
+    end
   end
+
 end
