@@ -6,6 +6,8 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+ * Ruby 2.6.4
+ * Rails 5.2.3
 
 * System dependencies
 
@@ -22,5 +24,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-rails _5.2.3_ new wrk_insta_clone -d mysql --skip-test# wrk_insta_clone
