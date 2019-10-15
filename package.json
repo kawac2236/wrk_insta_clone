@@ -1,5 +1,7 @@
 {
   "name": "wrk_insta_clone",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap-material-design": "^4.1.1"
+  }
 }
