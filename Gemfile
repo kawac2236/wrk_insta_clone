@@ -38,10 +38,16 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # viewテンプレートにslimを使用する
 gem 'slim-rails'
+# Lintチェックを行う（安定バージョンに固定）
+gem 'rubocop', '~> 0.75.1', require: false
+gem 'rubocop-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # pryを使用する
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -53,8 +59,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # モデルにコメントをつける
   gem 'annotate'
+  # エラーを見やすくする
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
