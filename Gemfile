@@ -48,6 +48,8 @@ group :development, :test do
   # pryを使用する
   gem 'pry-rails'
   gem 'pry-byebug'
+  # テストにはRSpecを利用する
+  gem 'rspec-rails', '~> 3.8.0'
 end
 
 group :development do
@@ -62,6 +64,9 @@ group :development do
   # エラーを見やすくする
   gem 'better_errors'
   gem 'binding_of_caller'
+  # テスト時間を短くする
+  gem'spring-commands-rspec'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
