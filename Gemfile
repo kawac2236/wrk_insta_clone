@@ -43,7 +43,7 @@ gem 'rubocop', '~> 0.75.1', require: false
 gem 'rubocop-rails'
 
 # パスワード暗号化
-gem 'bcrypt'
+gem 'sorcery'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
