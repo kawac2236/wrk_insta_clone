@@ -4,7 +4,16 @@ h1 users/new
   .card.mb-3
     .card-body
       p 内容
+      = form_with model: @user, locale: true do |f|
+        .form-group.col-md-6
+          = f.label :ユーザー名
+          = f.text_field :name, class: 'form-control mb-2'
+        .form-group.col-md-6
+          = f.label :メールアドレス
+          = f.text_field :email, class: 'form-control mb-2'
+        = f.submit '新規登録', class: 'btn btn-raised btn-primary'
   / ログインへのリンク
   .card
     .card-body
       | アカウントをお持ちですか
+
