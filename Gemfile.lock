@@ -47,6 +47,7 @@ GEM
       rake (>= 0.8.7)
     arel (9.0.0)
     ast (2.4.0)
+    bcrypt (3.1.13)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -231,6 +232,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bcrypt
   better_errors
   binding_of_caller
   bootsnap (>= 1.1.0)
