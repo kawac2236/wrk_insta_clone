@@ -3,17 +3,24 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      # ユーザーログイン後にユーザー情報のページにリダイレクトする
+    # user = User.find_by(email: session_params[:email])
+    # binding.pry
+    @user = login(params[:email], params[:password])
+
+    if @user
+      # binding.pry
+      redirect_back_or_to root_path, success:'ログインしました'
     else
-      # エラーメッセージを作成する
-      render 'new'
+      # binding.pry
+      flash.now[:alert] = 'ログインに失敗しました'
+      render :new
     end
-    # render 'new'
   end
 
   def destroy
+    # session情報は全破棄
+    reset_session
+    redirect_to root_url, notice: 'ログアウトしました'
   end
 
 end
