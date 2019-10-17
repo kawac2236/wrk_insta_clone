@@ -5,6 +5,7 @@ h1 users/new
     .card-body
       p 内容
       = form_with model: @user, locale: true do |f|
+        = render 'shared/error_messages', object: @user
         .form-group.col-md-6
           = f.label :ユーザー名
           = f.text_field :name, class: 'form-control mb-2'
@@ -22,4 +23,5 @@ h1 users/new
   .card
     .card-body
       | アカウントをお持ちですか
+      a href="/login" ログインする
 

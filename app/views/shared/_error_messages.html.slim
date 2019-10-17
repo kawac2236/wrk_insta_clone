@@ -1,0 +1,9 @@
+/debug
+h1 エラーメッセージがはいるところ
+h2 = object.name
+/debug ↓以下が呼ばれない
+- if object.errors.any?
+  #error_messages.alert.alert-danger
+    ul.mb-0
+      - object.errors.full_messages.each do |msg|
+        li = msg

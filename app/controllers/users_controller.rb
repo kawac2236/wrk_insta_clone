@@ -11,9 +11,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # 成功したとき
-      render :new
+      flash[:success] = "登録に成功しました"
+      redirect_to @user
     else
       # 失敗したとき
+      # binding.pry
       render :new
     end
 

@@ -8,6 +8,8 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
   body
+    - flash.each do |message_type, message|
+      div class="alert alert-#{message_type}" = message
     = yield
     .container
       = debug(params) if Rails.env.development?
