@@ -1,0 +1,21 @@
+h1 sessions/new
+.container
+  / ログインフォーム
+  .card.mb-3
+    .card-body
+      p 内容
+      = form_with model: @sessions, locale: true do |f|
+        .form-group.col-md-6
+          = f.label :メールアドレス
+          = f.email_field :email, class: 'form-control mb-2'
+        .form-group.col-md-6
+          = f.label :パスワード
+          = f.password_field :password, class: 'form-control mb-2'
+        = f.submit 'ログイン', class: 'btn btn-raised btn-primary'
+  / サインアップへのリンク
+  .card
+    .card-body
+      | アカウントをお持ちでないですか
+      a href="/" 登録する
+
+
