@@ -4,12 +4,12 @@
       / ログインフォーム
       .card.mb-3
         .card-body
-          = form_with url: login_path, locale: true do |f|
+          = form_with url: login_path,local: true do |f|
             .form-group
-              = f.label :メールアドレス, class: 'bmd-label-floating'
+              = f.label :email, 'メールアドレス', class: 'bmd-label-floating'
               = f.email_field :email, class: 'form-control'
             .form-group
-              = f.label :パスワード, class: 'bmd-label-floating'
+              = f.label :password, 'パスワード', class: 'bmd-label-floating'
               = f.password_field :password, class: 'form-control'
             = f.submit 'ログイン', class: 'btn btn-raised btn-primary'
       / サインアップへのリンク

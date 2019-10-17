@@ -38,6 +38,12 @@ module WrkInstaClone
       g.helper false
       g.test_framework false
     end
+    # タイムゾーン設定
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
+
+    # 国際化対応
+    config.i18n.default_locale = :ja
 
   end
 end

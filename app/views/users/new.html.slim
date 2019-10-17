@@ -6,16 +6,16 @@
         = form_with model: @user, local: true do |f|
           = render 'shared/error_messages', object: @user
           .form-group
-            = f.label :ユーザー名, class: 'bmd-label-floating'
+            = f.label :name, class: 'bmd-label-floating'
             = f.text_field :name, class: 'form-control'
           .form-group
-            = f.label :メールアドレス, class: 'bmd-label-floating'
+            = f.label :email, class: 'bmd-label-floating'
             = f.email_field :email, class: 'form-control'
           .form-group
-            = f.label :パスワード, class: 'bmd-label-floating'
+            = f.label :password, class: 'bmd-label-floating'
             = f.password_field :password, class: 'form-control'
           .form-group
-            = f.label :パスワード（確認）, class: 'bmd-label-floating'
+            = f.label :password_confirmation, class: 'bmd-label-floating'
             = f.password_field :password_confirmation, class: 'form-control'
           = f.submit '登録', class: 'btn btn-raised btn-primary'
     / ログインへのリンク
