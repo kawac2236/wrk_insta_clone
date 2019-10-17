@@ -3,7 +3,7 @@
     / サインアップフォーム
     .card.mb-3
       .card-body
-        = form_with model: @user, locale: true do |f|
+        = form_with model: @user, local: true do |f|
           = render 'shared/error_messages', object: @user
           .form-group
             = f.label :ユーザー名, class: 'bmd-label-floating'
