@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    # Sorcery
     # Takes credentials and returns a user on successful authentication.
     @user = login(params[:email], params[:password])
 
@@ -15,6 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    # Sorcery
     # Resets the session and runs hooks before and after.
     logout
     redirect_to root_url, info: 'ログアウトしました'
