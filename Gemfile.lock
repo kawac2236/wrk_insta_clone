@@ -297,7 +297,6 @@ DEPENDENCIES
   material-sass (= 4.1.1)
   material_icons
   mysql2 (>= 0.4.4, < 0.6.0)
-  popper_js
   pry-byebug
   pry-rails
   puma (~> 3.11)
