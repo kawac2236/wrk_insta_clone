@@ -49,6 +49,12 @@ gem 'redis-rails'
 # 国際化対応
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 
+gem 'jquery-rails'
+gem 'bootstrap',     '4.1.1'
+gem 'material-sass', '4.1.1'
+gem 'material_icons'
+gem 'popper_js'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
