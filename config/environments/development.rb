@@ -60,6 +60,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   # sessionストアの設定
   # セッションタイムアウトを1日にする
-  config.session_store :redis_store, { servers: 'redis://localhost:6379', expire_after: 1.day }
-
+  config.session_store :redis_store, servers: 'redis://localhost:6379', expire_after: 1.day
 end

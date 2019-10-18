@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     # Sorcery
@@ -8,7 +7,7 @@ class SessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to root_path, success:'ログインしました'
+      redirect_back_or_to root_path, success: 'ログインしました'
     else
       flash.now[:danger] = 'ログインに失敗しました'
       render :new
@@ -21,5 +20,4 @@ class SessionsController < ApplicationController
     logout
     redirect_to root_url, info: 'ログアウトしました'
   end
-
 end

@@ -29,7 +29,7 @@ module WrkInstaClone
 
     # Don't generate system test files.
     config.generators.system_tests = nil
-    
+
     # generate コマンド実行時の生成物
     config.generators do |g|
       # 生成除外
@@ -44,6 +44,5 @@ module WrkInstaClone
 
     # 国際化対応
     config.i18n.default_locale = :ja
-
   end
 end
