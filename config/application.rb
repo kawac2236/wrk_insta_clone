@@ -37,6 +37,7 @@ module WrkInstaClone
       g.javascripts false
       g.helper false
       g.test_framework false
+      g.skip_routes true
     end
     # タイムゾーン設定
     config.time_zone = 'Tokyo'

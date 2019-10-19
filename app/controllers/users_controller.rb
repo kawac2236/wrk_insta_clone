@@ -15,7 +15,6 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       # 失敗したとき
-      # binding.pry
       render :new
     end
   end

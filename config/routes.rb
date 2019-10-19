@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  resources :users
+  # update,deleteは現時点では許容しない
+  resources :users, only: [:show,:create]
+
 end
