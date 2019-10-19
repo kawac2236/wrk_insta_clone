@@ -36,9 +36,32 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# viewテンプレートにslimを使用する
+gem 'slim-rails'
+# Lintチェックを行う（安定バージョンに固定）
+gem 'rubocop', '~> 0.75.1', require: false
+gem 'rubocop-rails'
+
+# パスワード暗号化
+gem 'sorcery'
+# セッション管理
+gem 'redis-rails'
+# 国際化対応
+gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
+
+gem 'jquery-rails'
+gem 'bootstrap',     '4.1.1'
+gem 'material-sass', '4.1.1'
+gem 'material_icons'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  # pryを使用する
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  # テストにはRSpecを利用する
+  gem 'rspec-rails', '~> 3.8.0'
 end
 
 group :development do
@@ -48,8 +71,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # モデルにコメントをつける
+  gem 'annotate'
+  # エラーを見やすくする
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # テスト時間を短くする
+  gem 'spring-commands-rspec'
 end
 
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

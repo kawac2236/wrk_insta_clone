@@ -6,6 +6,15 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons'
     = javascript_include_tag 'application'
   body
-    = yield
+    - if logged_in?
+      = render 'shared/after_login_header'
+    - else
+      = render 'shared/before_login_header'
+    = render 'shared/flash_messages'
+    .container
+      = yield
+      / 開発環境 debut用
+      = debug(params) if Rails.env.development?

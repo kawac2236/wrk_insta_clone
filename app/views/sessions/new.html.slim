@@ -1,0 +1,21 @@
+.login-register-form
+  .login-register-form-inner
+    .container
+      / ログインフォーム
+      .card.mb-3
+        .card-body
+          = form_with url: login_path,local: true do |f|
+            .form-group
+              = f.label :email, 'メールアドレス', class: 'bmd-label-floating'
+              = f.email_field :email, class: 'form-control'
+            .form-group
+              = f.label :password, 'パスワード', class: 'bmd-label-floating'
+              = f.password_field :password, class: 'form-control'
+            = f.submit 'ログイン', class: 'btn btn-raised btn-primary'
+      / サインアップへのリンク
+      .card
+        .card-body
+          | アカウントをお持ちでないですか?
+          = link_to '登録する', root_path
+
+
