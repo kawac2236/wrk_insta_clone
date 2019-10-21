@@ -1,0 +1,9 @@
+h1 Posts#index
+p Find me in app/views/posts/index.html.slim
+
+
+= @posts.each do |post|
+  .card.mb-3
+    .card-body
+      p = post.name
+      p = post.content

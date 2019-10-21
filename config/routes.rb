@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   # update,deleteは現時点では許容しない
   resources :users, only: [:show,:create]
-
+  resources :posts
 end

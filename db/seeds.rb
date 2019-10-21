@@ -3,8 +3,11 @@
   ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{table.table_name}")
 end
 
+# localeをイギリスに設定
+Faker::Config.locale = :en
+
 # User
-User.create!(name:  "sample",
+User.create!(name:  "sampleUser",
   email: "sample@sample.com",
   password:              "foobar",
   password_confirmation: "foobar"
@@ -22,10 +25,16 @@ User.create!(name:  "sample",
 end
 
 # Post
-Post.create!(content:  "samplePost"
+# 1件目の投稿はfirstのユーザー、2件目移行はsecondのユーザー
+first_user_id = User.first.id
+Post.create!(content:  "samplePost",
+    user_id: first_user_id
 )
 
 5.times do |n|
   content  = Faker::Lorem.sentence
-  Post.create!(content: content)
+  user_id = User.second.id
+  Post.create!(content: content,
+    user_id: user_id
+  )
 end
