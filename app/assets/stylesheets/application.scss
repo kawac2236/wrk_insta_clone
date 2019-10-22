@@ -1,4 +1,6 @@
 @import 'bootstrap-material-design/dist/css/bootstrap-material-design';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 main {
   padding-top: 50px;
@@ -14,8 +16,6 @@ main {
     width: 400px;
   }
 }
-
-
 .post {
   max-width: 400px;
   margin: 0 auto;
@@ -24,4 +24,8 @@ main {
     height: 400px;
     object-fit: cover;
   }
+}
+
+.fa-lg {
+  margin-left: 1rem;
 }
