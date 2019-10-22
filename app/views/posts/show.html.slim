@@ -1,0 +1,10 @@
+.card.mb-3.post
+  .post-card-container
+    .post-card-left
+      - @post.images.each do |image|
+        = image_tag image.url, class: 'card-img-top'
+    .post-card-right
+      .post-card-user
+      .post-card-comment
+        = @post.content
+      .post-card-form-comment
