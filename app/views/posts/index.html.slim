@@ -1,6 +1,6 @@
 .container
   .row
-    .col-md-8.col-12
+    .col-md-8
       = @posts.each do |post|
         .card.mb-3.post
           .card-header
@@ -21,7 +21,7 @@
                     = image_tag image.url, class: 'card-img-top'
           .card-body
             p = post.content
-    .col-md-4.col-12
+    .col-md-4
       - if logged_in?
         .porfile-box.mb-3
           = image_tag 'image_placeholder_sample.png', size: '50x50', class: 'rounded-circle mr-1'

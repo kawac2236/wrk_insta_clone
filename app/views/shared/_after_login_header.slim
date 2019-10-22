@@ -11,20 +11,17 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
     ul.navbar-nav.mt-2.mt-lg-0
       / 投稿
       li.nav-item
-        a.nav-link
-          = link_to new_post_path
-            = icon 'far', 'image', class: 'fa-lg'
+        = link_to new_post_path, class: 'nav-link' do
+          = icon 'far', 'image', class: 'fa-lg'
       / 通知
       li.nav-item
-        a.nav-link
-          = link_to '#'
-            = icon 'far', 'heart', class: 'fa-lg'
+        a.nav-link href="#"
+          = icon 'far', 'heart', class: 'fa-lg'
             / i.material-icons favorite_border
       / ユーザー編集
       li.nav-item
-        a.nav-link
-          = link_to '#'
-            = icon 'far', 'user', class: 'fa-lg'
+        a.nav-link href="#"
+          = icon 'far', 'user', class: 'fa-lg'
       li.nav-item
         = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
 
