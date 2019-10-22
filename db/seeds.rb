@@ -27,27 +27,11 @@ User.create!(
 end
 
 # Post
-# 1件目の投稿はfirstのユーザー、2件目以降はsecondのユーザー
-first_user_id = User.first.id
-second_user_id = User.second.id
-Post.create!(
-  content:  "samplePost",
-  images: [
-    open("./db/fixtures/post/101.jpg"),
-    open("./db/fixtures/post/102.jpg"),
-    open("./db/fixtures/post/103.jpg")
-  ],
-  user_id: first_user_id
-)
-
-5.times do |n|
-  content  = Faker::Lorem.sentence
-  Post.create!(
-    content: content,
-    images: [
-      open("./db/fixtures/post/104.jpg"),
-      open("./db/fixtures/post/105.jpg")
-    ],
-    user_id: second_user_id
+puts ' "Post" を作成開始します ...'
+User.limit(5).each do |user|
+  post = user.posts.create(
+    content:Faker::Lorem.sentence,
+    remote_images_urls: %w[https://picsum.photos/350/350/?random https://picsum.photos/350/350/?random https://picsum.photos/350/350/?random]
   )
+  puts "post#{post.id} が作成されました"
 end
