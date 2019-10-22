@@ -19,10 +19,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id = 1 # 仮実装
+    @post.user_id = current_user.id
     if @post.save
       # 成功したとき
-      redirect_to posts_path, success: '投稿しました'
+      redirect_to posts_path, success: '投稿に成功しました'
     else
       # 失敗したとき
       render :new
