@@ -10,8 +10,7 @@ class PostsController < ApplicationController
     # binding.pry
     if @post.save
       # 成功したとき
-      flash[:success] = '登録に成功しました'
-      render :index
+      redirect_to posts_path, success: '投稿しました'
     else
       # 失敗したとき
       render :new
@@ -19,9 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.joins(
-      'INNER JOIN users ON posts.user_id = users.id'
-    ).select('posts.*, users.name')
+    @posts = Post.all.includes(:user).order(created_at: :desc)
   end
 
   def edit; end

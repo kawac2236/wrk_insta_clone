@@ -3,8 +3,8 @@
   ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{table.table_name}")
 end
 
-# localeを英語に設定
-Faker::Config.locale = :en
+# localeを日本に設定
+Faker::Config.locale = :ja
 
 # User
 User.create!(
