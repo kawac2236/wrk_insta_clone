@@ -1,4 +1,5 @@
 = form_with model: post,local: true do |f|
+  = render 'shared/error_messages', object: post
   .form-group
     = f.label :images
     = f.file_field :images, multiple: true, class: 'form-control'

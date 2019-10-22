@@ -3,6 +3,7 @@ ja:
     # User
     models:
       user: 'ユーザー'
+      post: '投稿'
     attributes:
       user:
         id: 'ユーザーID'
@@ -10,6 +11,9 @@ ja:
         email:  'メールアドレス'
         password: 'パスワード'
         password_confirmation:  'パウワード確認'
+      post:
+        content: 'テキスト'
+        images: '画像'
   # 全モデル共通
   attributes:
     created_at: 作成日時
