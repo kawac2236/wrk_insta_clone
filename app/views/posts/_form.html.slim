@@ -1,0 +1,10 @@
+= form_with model: post,local: true do |f|
+  .form-group
+    = f.label :images
+    = f.file_field :images, multiple: true, class: 'form-control'
+    - post.images.each do |image|
+      = image_tag image.url, size: '100x100'
+  .form-group
+    = f.label :content, class: 'bmd-label-floating'
+    = f.text_area :content, class: 'form-control'
+  = f.submit '登録する', class: 'btn btn-raised btn-primary'
