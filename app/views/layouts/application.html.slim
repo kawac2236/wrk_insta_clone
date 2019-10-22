@@ -9,12 +9,12 @@ html
     = stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons'
     = javascript_include_tag 'application'
   body
-    - if logged_in?
-      = render 'shared/after_login_header'
-    - else
-      = render 'shared/before_login_header'
-    = render 'shared/flash_messages'
-    .container
-      = yield
-      / 開発環境 debut用
-      = debug(params) if Rails.env.development?
+      - if logged_in?
+        = render 'shared/after_login_header'
+      - else
+        = render 'shared/before_login_header'
+      = render 'shared/flash_messages'
+      main
+        = yield
+        / 開発環境 debut用
+        = debug(params) if Rails.env.development?

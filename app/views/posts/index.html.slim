@@ -1,15 +1,35 @@
-h1 Posts#index
-p Find me in app/views/posts/index.html.slim
-
-
-= @posts.each do |post|
-  .card.mb-3.post
-    .card-header
-      p = post.user.name
-      = link_to "update", edit_post_path(post)
-      = link_to "delete", post_path(post.id), method: :delete
-    = link_to post_path(post) do
-      - post.images.each do |image|
-        = image_tag image.url, class: 'card-img-top'
-    .card-body
-      p = post.content
+.container
+  .row
+    .col-md-8.col-12
+      = @posts.each do |post|
+        .card.mb-3.post
+          .card-header
+            p = post.user.name
+            = link_to "update", edit_post_path(post)
+            = link_to "delete", post_path(post.id), method: :delete
+          = link_to post_path(post) do
+            - post.images.each do |image|
+              = image_tag image.url, class: 'card-img-top'
+          .card-body
+            p = post.content
+    .col-md-4.col-12
+      - if logged_in?
+        .porfile-box.mb-3
+          = image_tag 'image_placeholder_sample.png', size: '50x50', class: 'rounded-circle mr-1'
+          = current_user.name
+      .users-box
+        .card
+          .card-header
+            | ユーザー
+          .card-body
+            .user.mb-3
+              = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ユーザー1
+            .user.mb-3
+              = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ユーザー2
+            .user.mb-3
+              = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ユーザー3        
+          .card-footer
+            = link_to 'すべて見る', '#'
