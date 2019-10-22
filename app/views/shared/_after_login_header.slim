@@ -9,19 +9,22 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
           input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" /
           button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search
     ul.navbar-nav.mt-2.mt-lg-0
-      li.nav-item
-        = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
       / 投稿
       li.nav-item
-        /　仮実装
-        a.nav-link href="/posts/new"
-          i.material-icons image
+        a.nav-link
+          = link_to new_post_path
+            = icon 'far', 'image', class: 'fa-lg'
       / 通知
       li.nav-item
-        a.nav-link href="#"
-          i.material-icons favorite_border
+        a.nav-link
+          = link_to '#'
+            = icon 'far', 'heart', class: 'fa-lg'
+            / i.material-icons favorite_border
       / ユーザー編集
       li.nav-item
-        a.nav-link href="#"
-          i.material-icons account_circle          
+        a.nav-link
+          = link_to '#'
+            = icon 'far', 'user', class: 'fa-lg'
+      li.nav-item
+        = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
 
