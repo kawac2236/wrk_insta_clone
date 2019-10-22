@@ -4,7 +4,7 @@
 end
 
 # localeを日本に設定
-Faker::Config.locale = :ja
+Faker::Config.locale = :en
 
 # User
 User.create!(
@@ -32,6 +32,11 @@ first_user_id = User.first.id
 second_user_id = User.second.id
 Post.create!(
   content:  "samplePost",
+  images: [
+    open("./db/fixtures/post/101.jpg"),
+    open("./db/fixtures/post/102.jpg"),
+    open("./db/fixtures/post/103.jpg")
+  ],
   user_id: first_user_id
 )
 
@@ -39,6 +44,10 @@ Post.create!(
   content  = Faker::Lorem.sentence
   Post.create!(
     content: content,
+    images: [
+      open("./db/fixtures/post/104.jpg"),
+      open("./db/fixtures/post/105.jpg")
+    ],
     user_id: second_user_id
   )
 end

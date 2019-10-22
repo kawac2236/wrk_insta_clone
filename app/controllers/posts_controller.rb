@@ -20,7 +20,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = 1 # 仮実装
-    # binding.pry
     if @post.save
       # 成功したとき
       redirect_to posts_path, success: '投稿しました'
