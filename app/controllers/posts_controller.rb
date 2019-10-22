@@ -28,6 +28,11 @@ class PostsController < ApplicationController
 
   def edit; end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, info: '投稿を削除しました'
+  end
   private
     def post_params
       params.require(:post).permit(:content,{images:[]})

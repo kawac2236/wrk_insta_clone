@@ -6,6 +6,8 @@ p Find me in app/views/posts/index.html.slim
   .card.mb-3.post
     .card-header
       p = post.user.name
+      = link_to "update", edit_post_path(post)
+      = link_to "delete", post_path(post.id), method: :delete
     = link_to post_path(post) do
       - post.images.each do |image|
         = image_tag image.url, class: 'card-img-top'
