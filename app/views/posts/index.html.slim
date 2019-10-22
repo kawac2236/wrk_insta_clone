@@ -3,7 +3,11 @@ p Find me in app/views/posts/index.html.slim
 
 
 = @posts.each do |post|
-  .card.mb-3
-    .card-body
+  .card.mb-3.post
+    .card-header
       p = post.user.name
+    = link_to post_path(post) do
+      - post.images.each do |image|
+        = image_tag image.url, class: 'card-img-top'
+    .card-body
       p = post.content

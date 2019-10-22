@@ -11,3 +11,14 @@
     width: 400px;
   }
 }
+
+
+.post {
+  max-width: 400px;
+  margin: 0 auto;
+  .card-img-top {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+  }
+}

@@ -18,6 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    # 作成時刻の降順で表示
     @posts = Post.all.includes(:user).order(created_at: :desc)
   end
 
