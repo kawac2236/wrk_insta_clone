@@ -1,5 +1,18 @@
 class PostsController < ApplicationController
-  
+  # ログインを要求するアクションの指定
+  before_action :require_login, only: %i[new create edit update destroy]
+
+  # 参照系のアクション
+  def index
+    # 作成時刻の降順で表示
+    @posts = Post.all.includes(:user).order(created_at: :desc)
+  end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
+  # ログイン時のアクション
   def new
     @post = Post.new
   end
@@ -15,15 +28,6 @@ class PostsController < ApplicationController
       # 失敗したとき
       render :new
     end
-  end
-
-  def index
-    # 作成時刻の降順で表示
-    @posts = Post.all.includes(:user).order(created_at: :desc)
-  end
-
-  def show
-    @post = Post.find(params[:id])
   end
 
   def edit
@@ -46,6 +50,7 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path, info: '投稿を削除しました'
   end
+
   private
     def post_params
       params.require(:post).permit(:content,{images:[]})
