@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   # update,deleteは現時点では許容しない
-  resources :users, only: %i[show create]
+  resources :users, only: %i[show create new]
   resources :posts
 end
