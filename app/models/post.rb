@@ -3,11 +3,15 @@
 # Table name: posts
 #
 #  id         :bigint           not null, primary key
-#  content    :string(255)
+#  content    :text(65535)      not null
+#  user_id    :bigint
+#  images     :json             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :integer
-#  images     :json
+#
+# Indexes
+#
+#  index_posts_on_user_id  (user_id)
 #
 
 class Post < ApplicationRecord
