@@ -18,8 +18,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
+    @post = current_user.posts.build(post_params)
     if @post.save
       # 成功したとき
       redirect_to posts_path, success: '投稿に成功しました'
@@ -30,7 +29,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
   end
 
   def update
@@ -45,9 +44,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path, info: '投稿を削除しました'
+    @post = current_user.posts.find(params[:id])
+    if @post.destroy
+      redirect_to posts_path, info: '投稿を削除しました'
+    else
+      redirect_to posts_path, danger: '投稿の削除に失敗しました。'
+    end
   end
 
   private
