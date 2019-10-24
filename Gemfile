@@ -54,6 +54,9 @@ gem 'faker'
 gem 'carrierwave'
 gem 'mini_magick'
 
+# ページネーション
+gem 'kaminari'
+
 gem 'jquery-rails'
 gem 'bootstrap', '>= 4.3.1'
 gem 'material-sass', '4.1.1'
