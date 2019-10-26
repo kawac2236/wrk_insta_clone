@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       # 成功したとき
       flash[:success] = '登録に成功しました'
-      redirect_to @user
+      redirect_to login_path
     else
       # 失敗したとき
       render :new
