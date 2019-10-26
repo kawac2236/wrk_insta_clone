@@ -2,6 +2,7 @@
   .row
     .col-md-8
       = render @posts
+      = paginate @posts
     .col-md-4
       - if logged_in?
         .porfile-box.mb-3

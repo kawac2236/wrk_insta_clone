@@ -64,7 +64,7 @@ main {
 
     .post-body {
       overflow: scroll;
-      max-height: 300px;
+      max-height: 250px;
     }
 
     .post-comment {
@@ -74,4 +74,8 @@ main {
       }
     }
   }
+}
+
+.pagination {
+  justify-content: center;       
 }
