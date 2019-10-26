@@ -10,6 +10,6 @@ div id="comment-#{comment.id}"
       - if current_user&.own?(comment)
         = link_to comment_path(comment), class: 'mr-3', method: :delete , data: { confirm: '本当に削除しますか？' }, remote: true do
           = icon 'far', 'trash-alt', class: 'fa-sm'
-        = link_to edit_comment_path(comment) do
+        = link_to edit_comment_path(comment), remote: true do
           = icon 'far', 'edit', class: 'fa-sm'
   hr
