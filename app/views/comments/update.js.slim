@@ -1,5 +1,8 @@
 - if @comment.errors.present?
   | alert("#{@comment.errors.full_messages.join('\n')}");
 - else
-  | $("#comment-#{@comment.id}").html("#{escape_javascript(render 'comments/comment', comment: @comment)}");
+  | $("#comment-#{@comment.id}").html(
+      $("#{escape_javascript(render 'comments/comment', comment: @comment)}")
+      .hide().fadeIn('slow')
+    );
   | $("#comment-edit-modal").modal('hide');

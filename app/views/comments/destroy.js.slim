@@ -1,1 +1,3 @@
-| $('#comment-#{@comment.id}').remove();
+| $('#comment-#{@comment.id}').fadeOut('fast', function(){
+    $(this).remove();
+  });
