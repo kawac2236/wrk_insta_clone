@@ -28,5 +28,12 @@
       / コメント一覧
       = render 'comments/comments' , comments: @comments 
     hr.m-0
-    .post-comment.p-3
-      = render 'comments/form', post: @post, comment: @comment
+    - if logged_in?
+      .post-comment.p-3
+        = render 'comments/form', post: @post, comment: @comment
+    - else
+      .m-3
+        | コメントするには
+        a href="/login"
+          | ログイン
+        | してください
