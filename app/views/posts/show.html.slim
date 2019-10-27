@@ -24,17 +24,23 @@
           .col-2
             = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle'
           .col-10
+            strong
+              = @post.user.name
             = simple_format(@post.content)
         hr
-        / コメント一覧
-        .row
-          .col-2
-            = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle'
-          .col-10
-            | ダミーコメントダミーコメントダミーコメント1
+        - @comments.each do |c|
+          / コメント一覧
+          .row
+            .col-2
+              = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle'
+            .col-10
+              strong
+                = c.user.name 
+              = simple_format(c.content)
         hr
       .post-comment.p-3
-        form.form-inline.mb-0
-          input type="text" class="form-control input-comment-body" placeholder="コメント"
-          button type="submit" class="btn btn-primary btn-raised"
-            | 投稿
+        = form_with model: [@post, @comment], remote: true do |f|
+          .form-group
+            = f.label :content, class: 'bmd-label-floating'
+            = f.text_area :content, class: 'form-control input-comment-body'
+          = f.submit '投稿', class: 'btn btn-raised btn-primary'
