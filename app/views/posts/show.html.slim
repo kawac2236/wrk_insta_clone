@@ -19,13 +19,11 @@
     hr.m-0
     .post-body.p-3
       / 投稿の本文
-      .row
+      .row.no-gutters
         .col-2
           = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle'
         .col-10
-          strong
-            = @post.user.name
-          = simple_format(@post.content)
+          = @post.content
       hr
       / コメント一覧
       = render 'comments/comments' , comments: @comments 
