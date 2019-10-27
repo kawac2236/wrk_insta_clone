@@ -14,7 +14,8 @@ ja:
       post:
         content: 'テキスト'
         images: '画像'
-  # 全モデル共通
+      comment:
+        content: 'コメント本文'
   attributes:
     created_at: 作成日時
     updated_at: 更新日時
