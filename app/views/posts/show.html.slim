@@ -8,7 +8,7 @@
   .image-info-box
     .profile-box.p-3
       .d-flex.align-items-center
-        = image_tag 'image_placeholder_sample.png', size: '50x50', class: 'rounded-circle mr-1'
+        = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
         div = @post.user.name
         - if current_user&.own?(@post)
           .ml-auto
@@ -27,6 +27,6 @@
       hr
       / コメント一覧
       = render 'comments/comments' , comments: @comments 
-    hr
+    hr.m-0
     .post-comment.p-3
       = render 'comments/form', post: @post, comment: @comment
