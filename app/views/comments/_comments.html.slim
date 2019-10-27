@@ -1,0 +1,9 @@
+- @comments.each do |c|
+  / コメント一覧
+  .row
+    .col-2
+      = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle'
+    .col-10
+      strong
+        = c.user.name 
+      = simple_format(c.content)
