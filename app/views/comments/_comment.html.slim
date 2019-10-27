@@ -1,0 +1,7 @@
+.row
+  .col-2
+    = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle'
+  .col-10
+    strong
+      = comment.user.name 
+    = simple_format(comment.content)
