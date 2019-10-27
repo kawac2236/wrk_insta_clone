@@ -1,0 +1,10 @@
+.modal#comment-edit-modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5.modal-title コメント編集
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"
+            | &times;
+      .modal-body
+        = render 'form', post: nil, comment: comment
