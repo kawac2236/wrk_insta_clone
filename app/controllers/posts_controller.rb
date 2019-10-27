@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # 参照系のアクション
   def index
     # 作成時刻の降順で表示
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def show
