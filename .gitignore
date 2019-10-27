@@ -26,8 +26,6 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/config/database.yml
-
 /public/uploads/*
 
 /db/fixtures/post_images/*.jpg
