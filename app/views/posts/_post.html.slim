@@ -9,6 +9,15 @@
             = icon 'far', 'trash-alt', class: 'fa-lg'
           = link_to edit_post_path(post) do
             = icon 'far', 'edit', class: 'fa-lg'
+      - if current_user && !current_user.own?(post)
+        .ml-auto
+          div id="like_area-#{post.id}"
+            - if current_user.like?(post)
+              = link_to like_path(current_user.likes.find_by(post_id: post.id)), method: :delete, local: true do
+                = icon 'fa', 'heart', class: 'fa-lg'
+            - else
+              = link_to likes_path(post_id: post.id), method: :post, local: true do
+                = icon 'far', 'heart', class: 'fa-lg'
   = link_to post_path(post) do
     .swiper-container
       .swiper-wrapper
