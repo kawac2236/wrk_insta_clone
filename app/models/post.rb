@@ -18,6 +18,7 @@ class Post < ApplicationRecord
   mount_uploaders :images, PostImageUploader
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   validates :content, presence: true, length: { maximum: 1000 }
   validates :images, presence: true
