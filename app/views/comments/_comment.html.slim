@@ -1,0 +1,15 @@
+div id="comment-#{comment.id}"
+  .row.no-gutters
+    .col-2
+      = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle'
+    .col-9
+      span.font-weight-bold.pr-1
+        = comment.user.name 
+      = comment.content
+    .col-1
+      - if current_user&.own?(comment)
+        = link_to comment_path(comment), class: 'mr-3', method: :delete , data: { confirm: '本当に削除しますか？' }, remote: true do
+          = icon 'far', 'trash-alt', class: 'fa-sm'
+        = link_to edit_comment_path(comment), remote: true do
+          = icon 'far', 'edit', class: 'fa-sm'
+  hr

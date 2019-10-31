@@ -1,0 +1,3 @@
+= form_with model: [post, comment], class: 'd-flex mb-0 flex-nowrap justify-content-between', remote: true do |f|
+  = f.text_field :content, class: 'form-control input-comment-body', placeholder: 'コメント'
+  = f.submit '投稿', class: 'btn btn-primary btn-raised'

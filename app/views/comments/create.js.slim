@@ -1,0 +1,8 @@
+- if @comment.errors.present?
+  | alert("#{@comment.errors.full_messages.join('\n')}");
+- else
+  | $('.comments-box').prepend(
+      $("#{escape_javascript(render 'comments/comment', comment: @comment)}")
+      .hide().fadeIn('slow')
+    );
+  | $('.input-comment-body').val('');
