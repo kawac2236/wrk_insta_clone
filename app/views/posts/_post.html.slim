@@ -11,7 +11,7 @@
             = icon 'far', 'edit', class: 'fa-lg'
       - if current_user && !current_user.own?(post)
         .ml-auto
-          = render 'like_area', post: post
+          = render 'likes/like_area', post: post
   = link_to post_path(post) do
     .swiper-container
       .swiper-wrapper
