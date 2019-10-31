@@ -19,6 +19,9 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  # 結合モデル
+  has_many :like_posts, through: :likes, source: :post
+
   authenticates_with_sorcery!
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
@@ -34,5 +37,18 @@ class User < ApplicationRecord
   # objectのユーザーIDと自分のIDを比較
   def own?(object)
     id == object.user_id
+  end
+
+  # 結合モデルのメソッド
+  def like(post)
+    like_posts << post
+  end
+
+  def unlike(post)
+    like_posts.destroy(post)
+  end
+
+  def like?(post)
+    like_posts.include?(post)
   end
 end
