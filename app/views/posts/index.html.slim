@@ -1,8 +1,12 @@
 .container
   .row
     .col-md-8
-      = render @posts
-      = paginate @posts
+      - if @posts.size > 0
+        = render @posts
+        = paginate @posts
+      - else
+        .text-center.font-weight-bold
+          | 投稿がありません
     .col-md-4
       - if logged_in?
         .porfile-box.mb-3
