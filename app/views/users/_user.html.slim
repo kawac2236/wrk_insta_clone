@@ -1,4 +1,5 @@
 .user.mb-3.d-flex.justify-content-between
-  = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
-  = user.name
+  = link_to user_path(user) do
+    = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
+    = user.name
 hr

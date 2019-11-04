@@ -1,3 +1,9 @@
-/ 仮作成
-= @user.name
-= @user.email
+.container
+  .row
+    .col-md-6.offset-md-3
+      .card
+        .card-body
+          .text-center.mb-3
+            = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
+          .profile.text-center.mb-3
+            = @user.name
