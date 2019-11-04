@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
 
   # update,deleteは現時点では許容しない
-  resources :users, only: %i[show create new]
+  resources :users, only: %i[show create new index]
   resources :posts, shallow: true do
     resources :comments
   end
