@@ -5,11 +5,11 @@ class PostsController < ApplicationController
   # 参照系のアクション
   def index
     # 作成時刻の降順で表示
-    if logged_in?
-      @posts = current_user.feed.includes(:user).order(created_at: :desc).page(params[:page])
-    else
-      @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
-    end
+    @posts = if current_user
+              current_user.feed.includes(:user).order(created_at: :desc).page(params[:page])
+            else
+              Post.all.includes(:user).order(created_at: :desc).page(params[:page])
+            end
     # ランダムに5件のユーザーを取得
     @random_users = User.randoms(5)
 
