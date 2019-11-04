@@ -10,6 +10,8 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
     end
+    # ランダムに5件のユーザーを取得
+    @random_users = User.order("RAND()").limit(5)
   end
 
   def show
