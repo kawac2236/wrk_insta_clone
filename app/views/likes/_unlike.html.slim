@@ -1,0 +1,2 @@
+= link_to like_path(current_user.likes.find_by(post_id: post.id)), method: :delete, remote: true do
+  = icon 'fa', 'heart', class: 'fa-lg'
