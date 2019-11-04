@@ -13,18 +13,6 @@
           .card-header
             | ユーザー
           .card-body
-            - @random_users.each do |user|
-              .user.mb-3
-                = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
-                = link_to user_path(user) do
-                  = user.name
-                = render 'users/follow_area', user: user
-              hr
-            / .user.mb-3
-            /   = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
-            /   | ユーザー2
-            / .user.mb-3
-            /   = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
-            /   | ユーザー3        
+            = render @random_users
           .card-footer
             = link_to 'すべて見る', users_path
