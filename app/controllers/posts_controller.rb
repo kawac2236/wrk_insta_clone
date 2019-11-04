@@ -10,9 +10,8 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
     end
-    # ランダムに5件のユーザーを取得 RDBSの種類依存するRAND関数は避けてpluckを使用
-    random_user_ids = User.pluck(:id).sample(5)
-    @random_users = User.find(random_user_ids)
+    # ランダムに5件のユーザーを取得
+    @random_users = User.randoms(5)
 
   end
 

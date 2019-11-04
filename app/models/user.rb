@@ -38,6 +38,9 @@ class User < ApplicationRecord
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
+  # randomにcount件数分取得
+  scope :randoms, -> (count) { all.sample(count) }
+
   # objectのユーザーIDと自分のIDを比較
   def own?(object)
     id == object.user_id
