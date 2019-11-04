@@ -2,4 +2,12 @@
   = link_to user_path(user) do
     = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
     = user.name
+  - if logged_in? && current_user.id != user.id
+    div id="follo-area-#{user.id}"
+      - if current_user.follow?(user)
+        = link_to relationship_path(current_user.active_relationships.find_by(followed_id: user.id)), class: 'btn btn-raised btn-outline-warning', method: :delete, local: true do
+          | アンフォロー
+      - else
+        = link_to relationships_path(followed_id: user.id), class: 'btn btn-raised btn-outline-warning', method: :post, local: true do
+          | フォロー
 hr
