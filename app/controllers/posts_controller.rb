@@ -5,7 +5,11 @@ class PostsController < ApplicationController
   # 参照系のアクション
   def index
     # 作成時刻の降順で表示
-    @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
+    if logged_in?
+      @posts = current_user.feed.includes(:user).order(created_at: :desc).page(params[:page])
+    else
+      @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
+    end
   end
 
   def show
