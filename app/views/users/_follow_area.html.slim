@@ -1,0 +1,6 @@
+- if logged_in? && current_user.id != user.id
+  div id="follow-area-#{user.id}"
+    - if current_user.follow?(user)
+      = render 'users/unfollow', user: user
+    - else
+      = render 'users/follow', user: user

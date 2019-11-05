@@ -1,0 +1,2 @@
+= link_to relationship_path(current_user.active_relationships.find_by(followed_id: user.id)), class: 'btn btn-raised btn-warning', method: :delete, remote: true do
+  | アンフォロー
