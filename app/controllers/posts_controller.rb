@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   # ログインを要求するアクションの指定
-  before_action :require_login, only: %i[new create edit update destroy]
+  before_action :require_login, only: %i[new create edit update destroy search]
 
   # 参照系のアクション
   def index
