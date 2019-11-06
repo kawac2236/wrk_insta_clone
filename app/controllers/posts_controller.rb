@@ -58,6 +58,10 @@ class PostsController < ApplicationController
     redirect_to posts_path, info: '投稿を削除しました'
   end
 
+  def search
+    @posts = Post.search(params[:content])
+  end
+
   private
 
   def post_params
