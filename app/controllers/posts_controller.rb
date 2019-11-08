@@ -59,7 +59,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @posts = Post.search(params[:content])
+    @posts = Post.content_contain(params[:content])
   end
 
   private

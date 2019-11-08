@@ -24,6 +24,6 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { maximum: 1000 }
   validates :images, presence: true
 
-  scope :search, -> (content) { where('content like ?', "%#{content}%")}
+  scope :content_contain, -> (content) { where('content like ?', "%#{content}%")}
 
 end
