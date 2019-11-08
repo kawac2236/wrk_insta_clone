@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[show create new index]
   resources :posts, shallow: true do
     collection do
-      get 'search'
+      get :search
     end
     resources :comments
   end
