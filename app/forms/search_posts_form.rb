@@ -6,10 +6,8 @@ class SearchPostsForm
 
   # 検索対象となるPostを返却する
   def search
-    if content.present?
-      Post.content_contain(content)
-    else
-      Post.all
-    end
+    scope = Post.distinct
+    scope = scope.content_contain(content) if content.present?
+    scope
   end
 end
