@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   # ログインを要求するアクションの指定
-  before_action :require_login, only: %i[new create edit update destroy]
+  before_action :require_login, only: %i[new create edit update destroy search]
 
   # 参照系のアクション
   def index
@@ -56,6 +56,10 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     @post.destroy!
     redirect_to posts_path, info: '投稿を削除しました'
+  end
+
+  def search
+    @posts = @search_form.search.includes(:user).page(params[:page])
   end
 
   private
