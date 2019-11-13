@@ -9,3 +9,4 @@
             = @user.name
             .mb-3
             = render 'follow_area', user: @user
+            = render partial: 'posts/user_post', collection: @user.posts
