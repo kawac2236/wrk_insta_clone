@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_103236) do
+ActiveRecord::Schema.define(version: 2019_11_18_110202) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_103236) do
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avator"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
