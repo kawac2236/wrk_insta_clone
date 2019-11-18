@@ -3,6 +3,10 @@
     .col-md-10.offset-md-1
       .card
         .card-body
+          - if current_user&.myself?(@user)
+            .text-center.mb-3
+              = link_to edit_mypage_account_path, class: 'btn btn-raised btn-warning', local: true do
+                | プロフィール編集
           .text-center.mb-3
             = image_tag 'image_placeholder_sample.png', size: '100x100', class: 'rounded-circle mr-1'
           .profile.text-center.mb-3
