@@ -9,6 +9,7 @@ html
     = stylesheet_link_tag 'mypage', media: 'all'
     = javascript_include_tag 'mypage'
   body
+    = render 'shared/after_login_header'
     = render 'shared/flash_messages'
     main
       .container
