@@ -32,6 +32,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # version :thumb do
   #   process resize_to_fit: [50, 50]
   # end
+  # Provide a default URL as a default if there hasn't been a file uploaded:
+  def default_url
+    'image_placeholder_sample.png'
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
