@@ -1,6 +1,10 @@
 = form_with model: user, url: mypage_account_path, local: true do |f|
   = render 'shared/error_messages', object: user
   .form-group
+    = f.label :avatar
+    = f.file_field :avatar, class: 'form-control'
+    = image_tag user.avatar.url, class: 'rounded-circle', id: 'preview', size: '100x100'
+  .form-group
     = f.label :name, class: 'bmd-label-floating'
     = f.text_area :name, class: 'form-control'
   = f.submit '更新する', class: 'btn btn-raised btn-primary'
