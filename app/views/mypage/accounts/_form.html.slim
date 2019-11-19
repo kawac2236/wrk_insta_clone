@@ -6,6 +6,6 @@
     = f.hidden_field :avatar_cache
     = image_tag @user.avatar.url, class: 'rounded-circle', id: 'preview', size: '100x100'
   .form-group
-    = f.label :name, class: 'bmd-label-floating'
+    = f.label :name
     = f.text_area :name, class: 'form-control'
   = f.submit '更新する', class: 'btn btn-raised btn-primary'
