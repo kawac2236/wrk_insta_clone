@@ -17,8 +17,9 @@ html
           .col-md-8.offset-md-2
             .card
               .card-body
-                .col-md-3
-                  = render 'mypage/shared/sidebar'
-                .col-md-9
-                  .mypage_content
-                    = yield
+                .row
+                  .col-md-3
+                    = render 'mypage/shared/sidebar'
+                  .col-md-9
+                    .mypage_content
+                      = yield
