@@ -1,1 +1,11 @@
-= render 'form', user: @user
+= form_with model: @user, url: mypage_account_path, local: true do |f|
+  = render 'shared/error_messages', object: @user
+  .form-group
+    = f.label :avatar
+    = f.file_field :avatar, onchange: 'previewFileWithId(preview)', class: 'form-control', accept: 'image/*'
+    = f.hidden_field :avatar_cache
+    = image_tag @user.avatar.url, class: 'rounded-circle mt-3', id: 'preview', size: '100x100'
+  .form-group
+    = f.label :name
+    = f.text_area :name, class: 'form-control'
+  = f.submit '更新する', class: 'btn btn-raised btn-primary'
