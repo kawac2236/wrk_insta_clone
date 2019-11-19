@@ -4,7 +4,7 @@
     = f.label :avatar
     = f.file_field :avatar, onchange: 'previewFileWithId(preview)', class: 'form-control', accept: 'image/*'
     = f.hidden_field :avatar_cache
-    = image_tag @user.avatar.url, class: 'rounded-circle', id: 'preview', size: '100x100'
+    = image_tag @user.avatar.url, class: 'rounded-circle mt-3', id: 'preview', size: '100x100'
   .form-group
     = f.label :name
     = f.text_area :name, class: 'form-control'
