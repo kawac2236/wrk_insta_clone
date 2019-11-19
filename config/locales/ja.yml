@@ -11,6 +11,7 @@ ja:
         email:  'メールアドレス'
         password: 'パスワード'
         password_confirmation:  'パウワード確認'
+        avatar: 'アバター'
       post:
         content: 'テキスト'
         images: '画像'
