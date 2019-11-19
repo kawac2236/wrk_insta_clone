@@ -11,7 +11,7 @@
       - if logged_in?
         .porfile-box.mb-3
           = link_to user_path(current_user) do
-            = image_tag 'image_placeholder_sample.png', size: '50x50', class: 'rounded-circle mr-1'
+            = image_tag current_user.avatar.url, size: '50x50', class: 'rounded-circle mr-1'
             = current_user.name
       .users-box
         .card

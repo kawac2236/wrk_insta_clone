@@ -8,7 +8,7 @@
   .image-info-box
     .profile-box.p-3
       .d-flex.align-items-center
-        = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
+        = image_tag @post.user.avatar.url, size: '40x40', class: 'rounded-circle mr-1'
         div = @post.user.name
         - if current_user&.own?(@post)
           .ml-auto
@@ -21,7 +21,7 @@
       / 投稿の本文
       .row.no-gutters
         .col-2
-          = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle'
+          = image_tag @post.user.avatar.url, size: '40x40', class: 'rounded-circle'
         .col-10
           = @post.content
       hr
