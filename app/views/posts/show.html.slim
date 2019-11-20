@@ -23,7 +23,7 @@
         .col-2
           = image_tag @post.user.avatar.url, size: '40x40', class: 'rounded-circle'
         .col-10
-          = @post.content
+          = simple_format(@post.content)
       hr
       / コメント一覧
       = render 'comments/comments' , comments: @comments 
