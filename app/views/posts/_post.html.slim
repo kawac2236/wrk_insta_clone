@@ -21,4 +21,4 @@
             = image_tag image.url, class: 'card-img-top'
       .swiper-pagination
   .card-body
-    p = post.content
+    = simple_format(post.content)
