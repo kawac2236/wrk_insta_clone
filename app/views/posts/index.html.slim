@@ -10,7 +10,7 @@
     .col-md-4
       - if logged_in?
         .porfile-box.mb-3
-          = link_to user_path(current_user) do
+          = link_to edit_mypage_account_path do
             = image_tag current_user.avatar.url, size: '50x50', class: 'rounded-circle mr-1'
             = current_user.name
       .users-box
