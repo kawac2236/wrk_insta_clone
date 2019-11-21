@@ -2,7 +2,7 @@
   .card-header
     .d-flex.align-items-center
       = link_to user_path(post.user) do
-        = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
+        = image_tag post.user.avatar.url, size: '40x40', class: 'rounded-circle mr-1'
         = post.user.name
       - if current_user&.own?(post)
         .ml-auto
@@ -21,4 +21,4 @@
             = image_tag image.url, class: 'card-img-top'
       .swiper-pagination
   .card-body
-    p = post.content
+    = simple_format(post.content)
