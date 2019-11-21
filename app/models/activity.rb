@@ -18,4 +18,13 @@
 #
 
 class Activity < ApplicationRecord
+  belongs_to :subject, polymorphic: true
+  belongs_to :user
+
+  # アクション区分
+  enum action_type: {
+    commented_to_own_post:  0, # コメント
+    liked_to_own_post:      1, # いいね
+    followed_me:            2  # フォロー
+  }
 end
