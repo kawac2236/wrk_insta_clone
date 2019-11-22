@@ -18,6 +18,19 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :post
+  has_one :activity, as: :subject, dependent: :destroy
 
   validates :content, presence: true, length: { maximum: 1000 }
+
+  after_create_commit :create_activities
+
+  private
+
+  def create_activities
+    Activity.create(
+      subject: self,
+      user: self.user,
+      action_type: :commented_to_own_post
+    )
+  end
 end
