@@ -1,0 +1,7 @@
+.dropdown-item.boder-bottom
+  = image_tag activity.subject.user.avatar.url, class: 'rounded-circle mr-1', size: '30x30' 
+  = link_to activity.subject.user.name, user_path(activity.subject.user)
+  | があなたの
+  object
+    = link_to '投稿', post_path(activity.subject.post)
+  | にいいねしました

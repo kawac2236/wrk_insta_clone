@@ -1,5 +1,5 @@
 class Mypage::ActivitiesController < Mypage::BaseController
   def index
-    @notifications = current_user.activities
+    @activities = current_user.activities.order(created_at: :desc).page(params[:page])
   end
 end
