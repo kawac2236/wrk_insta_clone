@@ -6,5 +6,5 @@
   object
     = link_to '投稿', post_path(activity.subject.post)
   | にいいねしました
-  
-  = l activity.created_at, format: :short
+  .ml-auto
+    = l activity.created_at, format: :short
