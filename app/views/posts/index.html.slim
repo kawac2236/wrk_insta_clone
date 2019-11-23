@@ -1,26 +1,23 @@
 .container
   .row
     .col-md-8
-      = render @posts
-      = paginate @posts
+      - if @posts.present?
+        = render @posts
+        = paginate @posts
+      - else
+        .text-center.font-weight-bold
+          | 投稿がありません
     .col-md-4
       - if logged_in?
         .porfile-box.mb-3
-          = image_tag 'image_placeholder_sample.png', size: '50x50', class: 'rounded-circle mr-1'
-          = current_user.name
+          = link_to edit_mypage_account_path do
+            = image_tag current_user.avatar.url, size: '50x50', class: 'rounded-circle mr-1'
+            = current_user.name
       .users-box
         .card
           .card-header
             | ユーザー
           .card-body
-            .user.mb-3
-              = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
-              | ユーザー1
-            .user.mb-3
-              = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
-              | ユーザー2
-            .user.mb-3
-              = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle mr-1'
-              | ユーザー3        
+            = render @random_users
           .card-footer
-            = link_to 'すべて見る', '#'
+            = link_to 'すべて見る', users_path

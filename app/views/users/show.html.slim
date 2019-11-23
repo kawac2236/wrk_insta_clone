@@ -1,3 +1,17 @@
-/ 仮作成
-= @user.name
-= @user.email
+.container
+  .row
+    .col-md-10.offset-md-1
+      .card
+        .card-body
+          - if current_user&.myself?(@user)
+            .text-center.mb-3
+              = link_to 'プロフィール編集', edit_mypage_account_path, class: 'btn btn-raised btn-warning', local: true
+          .text-center.mb-3
+            = image_tag @user.avatar.url, size: '100x100', class: 'rounded-circle mr-1'
+          .profile.text-center.mb-3
+            = @user.name
+            .mb-3
+            = render 'follow_area', user: @user
+            hr
+            .row
+              = render partial: 'posts/thumbnail', collection: @user.posts

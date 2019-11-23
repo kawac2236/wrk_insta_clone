@@ -1,13 +1,10 @@
 nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  a.navbar-brand href="/"  InstaClone
+  = link_to 'InstaClone', root_path, class:"navbar-brand"
   button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button" 
     span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse
     ul.navbar-nav.mr-auto
-      li.nav-item
-        form.form-inline.my-2.my-lg-0
-          input.form-control.mr-sm-2 aria-label="Search" placeholder="Search" type="search" /
-          button.btn.btn-outline-success.my-2.my-sm-0 type="submit"  Search
+      = render 'posts/search_form'
     ul.navbar-nav.mt-2.mt-lg-0
       / 投稿
       li.nav-item
@@ -15,12 +12,15 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
           = icon 'far', 'image', class: 'fa-lg'
       / 通知
       li.nav-item
-        a.nav-link href="#"
-          = icon 'far', 'heart', class: 'fa-lg'
-            / i.material-icons favorite_border
-      / ユーザー編集
+        .dropdown
+          a#dropdownMenuButton.nav-link.position-relative href="#" data-toggle="dropdown" aria-expanded="false" aria-haspopup="true"
+            = icon 'far', 'heart', class: 'fa-lg'
+            = render 'shared/unread_badge'
+          #header-activities.dropdown-menu.dropdown-menu-right.m-0.p-0 aria-labelledby="dropdownMenuButton"
+            = render 'shared/header_activities'
+
       li.nav-item
-        a.nav-link href="#"
+        = link_to user_path(current_user), class: 'nav-link' do
           = icon 'far', 'user', class: 'fa-lg'
       li.nav-item
         = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'

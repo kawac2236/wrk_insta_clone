@@ -1,12 +1,18 @@
 class PostsController < ApplicationController
   # ログインを要求するアクションの指定
-  before_action :require_login, only: %i[new create edit update destroy]
+  before_action :require_login, only: %i[new create edit update destroy search]
 
   # 参照系のアクション
   def index
     # 作成時刻の降順で表示
-    #@posts = Post.all.includes(:user).order(created_at: :desc)
-    @posts = Post.all.includes(:user).order(created_at: :desc).page(params[:page])
+    @posts = if current_user
+              current_user.feed.includes(:user).order(created_at: :desc).page(params[:page])
+            else
+              Post.all.includes(:user).order(created_at: :desc).page(params[:page])
+            end
+    # ランダムに5件のユーザーを取得
+    @random_users = User.randoms(5)
+
   end
 
   def show
@@ -36,7 +42,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = current_user.posts.find(params[:id])
     if @post.update(post_params)
       # 成功したとき
       redirect_to posts_path, info: '投稿を編集しました'
@@ -48,11 +54,12 @@ class PostsController < ApplicationController
 
   def destroy
     @post = current_user.posts.find(params[:id])
-    if @post.destroy
-      redirect_to posts_path, info: '投稿を削除しました'
-    else
-      redirect_to posts_path, danger: '投稿の削除に失敗しました。'
-    end
+    @post.destroy!
+    redirect_to posts_path, info: '投稿を削除しました'
+  end
+
+  def search
+    @posts = @search_form.search.includes(:user).page(params[:page])
   end
 
   private

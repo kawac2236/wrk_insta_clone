@@ -1,0 +1,5 @@
+div id="like_area-#{post.id}"
+  - if current_user.like?(post)
+    = render 'likes/unlike', post: post
+  - else
+    = render 'likes/like', post: post

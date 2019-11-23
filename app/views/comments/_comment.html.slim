@@ -1,7 +1,7 @@
 div id="comment-#{comment.id}"
   .row.no-gutters
     .col-2
-      = image_tag 'image_placeholder_sample.png', size: '40x40', class: 'rounded-circle'
+      = image_tag comment.user.avatar.url, size: '40x40', class: 'rounded-circle'
     .col-9
       span.font-weight-bold.pr-1
         = comment.user.name 
