@@ -1,0 +1,3 @@
+- if current_user.activities.unread.count > 0
+  span.badge.badge-warning.navbar-badge.position-absolute style='top: 0; right:0;'
+    = current_user.activities.unread.count

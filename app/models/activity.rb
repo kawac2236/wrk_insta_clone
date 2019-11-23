@@ -34,6 +34,8 @@ class Activity < ApplicationRecord
     read:   true    # 既読
   }
 
+  scope :recent, -> (count) { all.limit(count).order(:created_at) }
+
   # リダイレクト先
   def redirect_path
     case action_type.to_sym

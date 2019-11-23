@@ -1,0 +1,6 @@
+= link_to read_activity_path(activity), class: "dropdown-item boder-bottom #{'bg-light' if activity.read? }", method: :patch do
+  = image_tag activity.subject.follower.avatar.url, class: 'rounded-circle mr-1', size: '30x30' 
+  object
+    = link_to activity.subject.follower.name, user_path(activity.subject.follower)
+  | があなたをフォローしました
+  = l activity.created_at, format: :short
