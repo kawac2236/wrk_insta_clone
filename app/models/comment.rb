@@ -29,7 +29,7 @@ class Comment < ApplicationRecord
   def create_activities
     Activity.create(
       subject: self,
-      user: self.user,
+      user: post.user,
       action_type: :commented_to_own_post
     )
   end
