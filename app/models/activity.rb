@@ -40,7 +40,7 @@ class Activity < ApplicationRecord
   def redirect_path
     case action_type.to_sym
     when :commented_to_own_post
-      post_path(subject.post)
+      post_path(subject.post, anchor: "comment-#{subject.id}")
     when :liked_to_own_post
       post_path(subject.post)
     when :followed_me
