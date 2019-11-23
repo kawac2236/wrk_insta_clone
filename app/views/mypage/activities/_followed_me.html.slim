@@ -3,3 +3,5 @@
   object
     = link_to activity.subject.follower.name, user_path(activity.subject.follower)
   | があなたをフォローしました
+  .text-right
+    = l activity.created_at, format: :short

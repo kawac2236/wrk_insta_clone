@@ -9,3 +9,5 @@
   object
     = link_to 'コメント', post_path(activity.subject.post, anchor: "comment-#{activity.subject.id}")
   | しました
+  .text-right
+    = l activity.created_at, format: :short
