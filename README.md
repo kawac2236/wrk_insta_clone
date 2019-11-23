@@ -67,6 +67,8 @@ sample201@sample.com
 - テスト（RSpec)
   - 単体テスト
   - 統合テスト
+- 簡単ログイン機能
+  - テストユーザーでログイン
 
 ## 実装を検討している機能
 - twitter,slack,fb等の他SNS連携
