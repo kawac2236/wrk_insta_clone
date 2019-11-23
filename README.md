@@ -4,6 +4,12 @@
 ## デモ環境
 https://wrk-clone-insta-1019.herokuapp.com/
 
+テスト用ユーザーのメールアドレス（ともにパスワードは `foobar`
+```
+sample101@sample.com
+sample201@sample.com
+```
+
 ## 概要
 インスタグラムのような写真の投稿アプリです。（作成中）
 
