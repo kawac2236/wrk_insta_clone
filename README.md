@@ -1,26 +1,66 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# インスタクローンアプリ
 
-Things you may want to cover:
+## 概要
+インスタグラムのような写真の投稿アプリです。（作成中）
 
-* Ruby version
- * Ruby 2.6.4
- * Rails 5.2.3
+## 使用技術
+- 言語・フレームワーク
+  - Ruby 2.6系
+  - Rails 5.2系
+- DB
+  - MySQL 8.0系
+  - Redis (sessionストアとして)
+- 本番環境
+  - Heroku（AWSに切り替え予定）
 
-* System dependencies
+## 機能
+- ユーザー認証
+  - ログイン・ログアウト機能(sorcery)
+  - セッション管理機能（redis)
+  - ユーザー登録機能
+- 投稿機能
+  - 画像投稿（複数投稿可）
+  - 投稿一覧のページネーション
+  - 画像のスワイプ閲覧機能(swiper)
+  - 投稿編集
+  - 投稿削除
+  - 投稿一覧（フォローと自分のみ表示）
+  - 投稿検索機能（本文検索）
+- 投稿に対するコメント機能
+  - コメント作成・削除（非同期処理）
+  - コメント編集（モーダル表示）
+- いいね機能
+  - 投稿いいね機能
+  - いいね・いいね解除（非同期処理）
+- フォロー機能
+  - フォロー・フォロー解除（非同期処理）
+- ユーザー一覧機能
+  - 投稿一覧横にランダムで5人表示
+  - 全ユーザー一覧（ページネーション）
+  - ユーザー詳細（投稿画像のタイル表示）
+- マイページ機能
+  - プロフィール編集（名前・アイコン）
+  - 通知機能（以下のアクションに対して。ポリモーフィズムを利用）
+    - 投稿がいいねされたとき
+    - フォローされたとき
+    - 投稿にコメントされたとき
+  - 通知に対する既読判定（表示の変更）
+  - ヘッダーに未読通知数をバッジ表示
+- その他機能
+  - 国際化対応(i18n。モデル名のみ)
 
-* Configuration
+## 今後実装する機能
+- メール通知機能（ActiveJobによる非同期処理）
+  - 投稿がいいねされたとき
+  - フォローされたとき
+  - 投稿にコメントされたとき
+- テスト（RSpec)
+  - 単体テスト
+  - 統合テスト
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 実装を検討している機能
+- twitter,slack,fb等の他SNS連携
+- ユーザー情報による近似ユーザーのおすすめ機能
+- 投稿画像数ランキング
