@@ -27,12 +27,14 @@ class PostsController < ApplicationController
   end
 
   def create
+    # 
     @post = current_user.posts.build(post_params)
     if @post.save
       # 成功したとき
       redirect_to posts_path, success: '投稿に成功しました'
     else
       # 失敗したとき
+      # リロードするとPOSTがもう一回はしる
       render :new
     end
   end
