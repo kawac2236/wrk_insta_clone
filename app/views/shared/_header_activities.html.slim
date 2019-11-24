@@ -1,0 +1,8 @@
+- if current_user.activities.present?
+  - current_user.activities.recent(10).each do |activity|
+    = render "shared/activities/#{activity.action_type}", activity: activity
+  - if current_user.activities.count > 10
+    = link_to 'すべてみる', mypage_activities_path, class: 'dropdown-item justify-content-center'
+- else
+  .dropdown-item
+    | お知らせはありません

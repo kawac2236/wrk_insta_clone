@@ -5,7 +5,7 @@
         .card-body
           - if current_user&.myself?(@user)
             .text-center.mb-3
-              = link_to 'プロフィール編集', edit_mypage_account_path, class: 'btn btn-raised btn-warning', local: true do
+              = link_to 'プロフィール編集', edit_mypage_account_path, class: 'btn btn-raised btn-warning', local: true
           .text-center.mb-3
             = image_tag @user.avatar.url, size: '100x100', class: 'rounded-circle mr-1'
           .profile.text-center.mb-3

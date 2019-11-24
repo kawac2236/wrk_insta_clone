@@ -9,6 +9,7 @@
 #  salt             :string(255)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  avatar           :string(255)
 #
 # Indexes
 #
@@ -21,6 +22,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :activities, dependent: :destroy
   # 結合モデル
   has_many :like_posts, through: :likes, source: :post
   has_many :active_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
