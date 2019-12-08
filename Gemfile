@@ -53,7 +53,8 @@ gem 'faker'
 # 画像アップロード
 gem 'carrierwave'
 gem 'mini_magick'
-
+# 定数管理
+gem 'config'
 # ページネーション
 gem 'kaminari'
 
