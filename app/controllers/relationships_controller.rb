@@ -4,6 +4,10 @@ class RelationshipsController < ApplicationController
   def create
     @user = User.find(params[:followed_id])
     current_user.follow(@user)
+    UserMailer.with(
+      user_from: current_user,
+      user_to: @user
+    ).follow_user.deliver_now
   end
 
   def destroy
