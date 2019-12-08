@@ -4,12 +4,13 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    @comment.save
-    UserMailer.with(
-      user_from: current_user,
-      user_to: @comment.post.user,
-      post: @comment.post
-    ).comment_post.deliver_now
+    if @comment.save
+      UserMailer.with(
+        user_from: current_user,
+        user_to: @comment.post.user,
+        post: @comment.post
+      ).comment_post.deliver_later
+    end
   end
 
   def destroy
