@@ -29,7 +29,7 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followed, through: :passive_relationships, source: :following
-  
+
   authenticates_with_sorcery!
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
@@ -43,7 +43,7 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   # randomにcount件数分取得
-  scope :randoms, -> (count) { all.sample(count) }
+  scope :randoms, ->(count) { all.sample(count) }
 
   # objectのユーザーIDと自分のIDを比較
   def own?(object)
@@ -77,7 +77,7 @@ class User < ApplicationRecord
   end
 
   def feed
-    Post.where(user_id: following_ids << id )
+    Post.where(user_id: following_ids << id)
   end
 
   def myself?(user)

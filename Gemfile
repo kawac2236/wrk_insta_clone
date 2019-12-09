@@ -53,7 +53,8 @@ gem 'faker'
 # 画像アップロード
 gem 'carrierwave'
 gem 'mini_magick'
-
+# 定数管理
+gem 'config'
 # ページネーション
 gem 'kaminari'
 
@@ -88,6 +89,8 @@ group :development do
   gem 'binding_of_caller'
   # テスト時間を短くする
   gem 'spring-commands-rspec'
+  # メールのローカル確認
+  gem 'letter_opener_web'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

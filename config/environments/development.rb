@@ -61,4 +61,7 @@ Rails.application.configure do
   # sessionストアの設定
   # セッションタイムアウトを1日にする
   config.session_store :redis_store, servers: 'redis://localhost:6379', expire_after: 1.day
+  # mailerの設定
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
+  config.action_mailer.delivery_method = :letter_opener_web
 end
