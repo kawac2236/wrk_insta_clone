@@ -1,4 +1,4 @@
-class Mypage::AccountsController < Mypage::BaseController  
+class Mypage::AccountsController < Mypage::BaseController
   def edit
     @user = User.find(current_user.id)
   end
@@ -14,6 +14,7 @@ class Mypage::AccountsController < Mypage::BaseController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:avatar, :avatar_cache, :name)
   end
