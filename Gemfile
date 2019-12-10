@@ -59,7 +59,7 @@ gem 'config'
 gem 'kaminari'
 # 非同期処理
 gem 'sidekiq'
- # ダッシュボードを利用するため
+# ダッシュボードを利用するため
 gem 'sinatra', require: false
 
 gem 'jquery-rails'
