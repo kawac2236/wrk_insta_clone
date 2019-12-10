@@ -45,5 +45,8 @@ module WrkInstaClone
 
     # 国際化対応
     config.i18n.default_locale = :ja
+
+    # 非同期処理
+    config.active_job.queue_adapter = :sidekiq
   end
 end

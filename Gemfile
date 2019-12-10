@@ -57,6 +57,10 @@ gem 'mini_magick'
 gem 'config'
 # ページネーション
 gem 'kaminari'
+# 非同期処理
+gem 'sidekiq'
+ # ダッシュボードを利用するため
+gem 'sinatra', require: false
 
 gem 'jquery-rails'
 gem 'bootstrap', '>= 4.3.1'
