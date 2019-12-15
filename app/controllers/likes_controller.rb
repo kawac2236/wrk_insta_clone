@@ -3,7 +3,7 @@ class LikesController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    if current_user.like(@post) && current_user.notification_on_like?
+    if current_user.like(@post) && @post.user.notification_on_like?
       UserMailer.with(
         user_from: current_user,
         user_to: @post.user,

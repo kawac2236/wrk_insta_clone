@@ -1,6 +1,3 @@
-p
-  | 相手にメールを送信するかの設定
-hr
 = form_with model: @user, url: mypage_notification_path, local: true do |f|
   = render 'shared/error_messages', object: @user
   .form-group
