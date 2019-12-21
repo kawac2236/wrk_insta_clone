@@ -87,8 +87,14 @@ RSpec.describe User, type: :model do
       end
     end
 
+    describe 'feed' do
+      before do
+        user_a.follow(user_b)
+      end
+      subject { user_a.feed }
+      it { is_expected.to include post_by_user_a }
+      it { is_expected.to include post_by_user_b }
+      it { is_expected.not_to include post_by_user_c }
+    end
   end
-#     it { is_expected.to include post_by_user_a }
-#     it { is_expected.to include post_by_user_b }
-#     it { is_expected.not_to include post_by_user_c }
 end
