@@ -34,6 +34,7 @@ class User < ApplicationRecord
   has_many :followed, through: :passive_relationships, source: :following
 
   authenticates_with_sorcery!
+  validates :name, uniqueness: true, presence: true
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true,

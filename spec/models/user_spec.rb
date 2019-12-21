@@ -8,6 +8,12 @@ RSpec.describe User, type: :model do
       expect(user.errors[:name]).to include('を入力してください')
     end
 
+    it 'ユーザー名は一意であること' do
+      user = create(:user)
+      same_name_user = build(:user, name: user.name)
+      same_name_user.valid?
+      expect(same_name_user.errors[:name]).to include('はすでに存在します')
+    end
 
 #     it 'メールアドレスは必須であること' do
 #     it 'メールアドレスは一意であること' do
