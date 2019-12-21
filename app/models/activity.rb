@@ -7,7 +7,7 @@
 #  subject_id   :bigint
 #  user_id      :bigint
 #  action_type  :integer          not null
-#  read         :boolean          default(FALSE), not null
+#  read         :boolean          default("unread"), not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #

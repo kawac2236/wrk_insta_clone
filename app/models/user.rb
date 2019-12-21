@@ -2,14 +2,17 @@
 #
 # Table name: users
 #
-#  id               :bigint           not null, primary key
-#  name             :string(255)      not null
-#  email            :string(255)      not null
-#  crypted_password :string(255)
-#  salt             :string(255)
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  avatar           :string(255)
+#  id                      :bigint           not null, primary key
+#  name                    :string(255)      not null
+#  email                   :string(255)      not null
+#  crypted_password        :string(255)
+#  salt                    :string(255)
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  avatar                  :string(255)
+#  notification_on_comment :boolean          default(TRUE), not null
+#  notification_on_follow  :boolean          default(TRUE), not null
+#  notification_on_like    :boolean          default(TRUE), not null
 #
 # Indexes
 #
