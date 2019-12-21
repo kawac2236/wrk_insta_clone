@@ -1,10 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-#     it 'ユーザー名は必須であること' do
-#     it 'ユーザー名は一意であること' do
+  describe "バリデーション" do
+    it 'ユーザー名は必須であること' do
+      user = build(:user, name: nil)
+      user.valid?
+      expect(user.errors[:name]).to include('を入力してください')
+    end
+
+
 #     it 'メールアドレスは必須であること' do
 #     it 'メールアドレスは一意であること' do
+  end
 #     it '自分のオブジェクトの場合trueを返す' do
 #     it '自分のオブジェクトの場合falseを返す' do
 #     it 'いいねできること' do
