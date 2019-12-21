@@ -77,6 +77,8 @@ group :development, :test do
   gem 'pry-byebug'
   # テストにはRSpecを利用する
   gem 'rspec-rails', '~> 3.8.0'
+  # fixture
+  gem 'factory_bot_rails'
 end
 
 group :development do
