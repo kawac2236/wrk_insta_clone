@@ -15,6 +15,10 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
 
+  config.before(:each, type: :system) do
+    driven_by :selenium, using: :headless_chrome, screen_size: [1920, 1080]
+  end
+
   # ArgumentError: Factory not registeredの対応策
   config.before(:all) do
     FactoryBot.reload
