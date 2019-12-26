@@ -82,9 +82,6 @@ RSpec.describe 'ポスト', type: :system do
 	end
 
 	describe 'ポスト削除' do
-		# 自分の投稿に削除ボタンが表示されること
-		# 他人の投稿に削除ボタンが表示されないこと
-		# 投稿がさくじょできること
 		let!(:user) { create(:user) }
     let!(:post_1_by_others) { create(:post) }
     let!(:post_2_by_others) { create(:post) }
