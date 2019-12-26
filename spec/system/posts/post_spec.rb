@@ -107,6 +107,14 @@ RSpec.describe 'ポスト', type: :system do
       end
 		end
 
+		it '投稿が削除できること' do
+			visit posts_path
+			within "#post-#{post_by_user.id}" do
+				page.accept_confirm { find('.delete-button').click }
+			end
+      expect(page).to have_content '投稿を削除しました'
+      expect(page).not_to have_content post_by_user.content
+		end
 	end
 
 	describe 'ポスト詳細' do
