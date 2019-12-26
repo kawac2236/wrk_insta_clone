@@ -118,7 +118,17 @@ RSpec.describe 'ポスト', type: :system do
 	end
 
 	describe 'ポスト詳細' do
-		# 投稿の詳細画面が閲覧できること
+    let(:user) { create(:user) }
+    let(:post_by_user) { create(:post, user: user) }
+
+    before do
+      login_as user
+    end
+
+    it '投稿の詳細画面が閲覧できること' do
+      visit post_path(post_by_user)
+      expect(current_path).to eq post_path(post_by_user)
+		end
 	end
 
 	describe 'いいね' do
