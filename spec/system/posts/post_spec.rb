@@ -32,7 +32,6 @@ RSpec.describe 'ポスト', type: :system do
 	end
 
 	describe 'ポスト投稿' do
-		# 画像投稿できること
 		it '画像投稿できること' do
 			login
 			visit new_post_path
@@ -48,7 +47,20 @@ RSpec.describe 'ポスト', type: :system do
 	end
 
 	describe 'ポスト更新' do
-		# 自分の投稿に編集ポタンが表示されること
+		let!(:user) { create(:user) }
+    let!(:post_1_by_others) { create(:post) }
+    let!(:post_2_by_others) { create(:post) }
+    let!(:post_by_user) { create(:post, user: user) }
+    before do
+      login_as user
+    end
+    it '自分の投稿に編集ボタンが表示されること' do
+      visit posts_path
+      within "#post-#{post_by_user.id}" do
+        expect(page).to have_css '.delete-button'
+        expect(page).to have_css '.edit-button'
+      end
+    end
 		# 痰飲の投稿には編集ポタンが表示されないこと
 		# 投稿が更新できること
 	end
