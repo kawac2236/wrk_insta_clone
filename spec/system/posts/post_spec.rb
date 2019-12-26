@@ -10,6 +10,19 @@ RSpec.describe 'ポスト', type: :system do
 
 		# ログインしている場合
 		# 	フォロワーと自分の投稿だけが表示されること
+		context 'ログインしている場合' do
+			before do
+				login_as user
+				user.follow(post_1_by_others.user)
+			end
+			it '自分とフォロワーの投稿だけ表示されること' do
+				visit posts_path
+				expect(page).to have_content post_1_by_others.content
+				expect(page).not_to have_content post_2_by_others.content
+				expect(page).to have_content post_by_user.content
+			end
+		end
+
 		context 'ログインしていない場合' do
 			it 'すべてのポストが表示されること' do
 				visit posts_path
