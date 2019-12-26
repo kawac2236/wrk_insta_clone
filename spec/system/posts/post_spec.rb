@@ -8,8 +8,6 @@ RSpec.describe 'ポスト', type: :system do
 		let!(:post_2_by_others) { create(:post) }
 		let!(:post_by_user) { create(:post, user: user) }
 
-		# ログインしている場合
-		# 	フォロワーと自分の投稿だけが表示されること
 		context 'ログインしている場合' do
 			before do
 				login_as user
@@ -35,6 +33,18 @@ RSpec.describe 'ポスト', type: :system do
 
 	describe 'ポスト投稿' do
 		# 画像投稿できること
+		it '画像投稿できること' do
+			login
+			visit new_post_path
+			within '#posts_form' do
+				attach_file '画像', 'spec/fixtures/test.png'
+				fill_in 'テキスト', with: 'This is an example test'
+				click_button '登録する'
+			end
+
+			expect(page).to have_content '投稿に成功しました'
+			expect(page).to have_content 'This is an example test'
+		end
 	end
 
 	describe 'ポスト更新' do
