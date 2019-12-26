@@ -57,7 +57,6 @@ RSpec.describe 'ポスト', type: :system do
     it '自分の投稿に編集ボタンが表示されること' do
       visit posts_path
       within "#post-#{post_by_user.id}" do
-        expect(page).to have_css '.delete-button'
         expect(page).to have_css '.edit-button'
       end
 		end
@@ -66,7 +65,6 @@ RSpec.describe 'ポスト', type: :system do
       user.follow(post_1_by_others.user)
       visit posts_path
       within "#post-#{post_1_by_others.id}" do
-        expect(page).not_to have_css '.delete-button'
         expect(page).not_to have_css '.edit-button'
       end
 		end
@@ -87,6 +85,28 @@ RSpec.describe 'ポスト', type: :system do
 		# 自分の投稿に削除ボタンが表示されること
 		# 他人の投稿に削除ボタンが表示されないこと
 		# 投稿がさくじょできること
+		let!(:user) { create(:user) }
+    let!(:post_1_by_others) { create(:post) }
+    let!(:post_2_by_others) { create(:post) }
+    let!(:post_by_user) { create(:post, user: user) }
+    before do
+      login_as user
+    end
+    it '自分の投稿に削除ボタンが表示されること' do
+      visit posts_path
+      within "#post-#{post_by_user.id}" do
+        expect(page).to have_css '.delete-button'
+      end
+		end
+		
+    it '他人の投稿には削除ボタンが表示されないこと' do
+      user.follow(post_1_by_others.user)
+      visit posts_path
+      within "#post-#{post_1_by_others.id}" do
+        expect(page).not_to have_css '.delete-button'
+      end
+		end
+
 	end
 
 	describe 'ポスト詳細' do
