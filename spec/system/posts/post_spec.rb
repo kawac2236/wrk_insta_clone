@@ -62,14 +62,6 @@ RSpec.describe 'ポスト', type: :system do
       end
 		end
 		
-		it '自分の投稿に編集ボタンが表示されること' do
-      visit posts_path
-      within "#post-#{post_by_user.id}" do
-        expect(page).to have_css '.delete-button'
-        expect(page).to have_css '.edit-button'
-      end
-		end
-		
     it '他人の投稿には編集ボタンが表示されないこと' do
       user.follow(post_1_by_others.user)
       visit posts_path
