@@ -60,9 +60,35 @@ RSpec.describe 'ポスト', type: :system do
         expect(page).to have_css '.delete-button'
         expect(page).to have_css '.edit-button'
       end
-    end
-		# 痰飲の投稿には編集ポタンが表示されないこと
-		# 投稿が更新できること
+		end
+		
+		it '自分の投稿に編集ボタンが表示されること' do
+      visit posts_path
+      within "#post-#{post_by_user.id}" do
+        expect(page).to have_css '.delete-button'
+        expect(page).to have_css '.edit-button'
+      end
+		end
+		
+    it '他人の投稿には編集ボタンが表示されないこと' do
+      user.follow(post_1_by_others.user)
+      visit posts_path
+      within "#post-#{post_1_by_others.id}" do
+        expect(page).not_to have_css '.delete-button'
+        expect(page).not_to have_css '.edit-button'
+      end
+		end
+
+		it '投稿が更新できること' do
+			visit edit_post_path(post_by_user)
+			within '#posts_form' do
+				attach_file '画像', 'spec/fixtures/test.png'
+				fill_in 'テキスト', with: 'This is an example updated post'
+				click_button '更新する'
+			end
+      expect(page).to have_content '投稿を編集しました'
+      expect(page).to have_content 'This is an example updated post'
+		end
 	end
 
 	describe 'ポスト削除' do
