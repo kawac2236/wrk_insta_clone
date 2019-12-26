@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-Rspec.describe 'ユーザー登録', type: :system do
+RSpec.describe 'ユーザー登録', type: :system do
+
   describe 'ユーザー登録' do
     context '入力情報が正しい場合' do
       it 'ユーザー登録ができること' do
@@ -11,7 +12,7 @@ Rspec.describe 'ユーザー登録', type: :system do
         fill_in 'パスワード確認', with: '12345678'
         click_button '登録'
         expect(current_path).to eq login_path
-        expect(page).to have_content 'ユーザーを作成しました'
+        expect(page).to have_content '登録に成功しました'
       end
     end
 	end
