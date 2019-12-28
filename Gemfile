@@ -79,6 +79,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8.0'
   # fixture
   gem 'factory_bot_rails'
+  # 統合テスト
+  gem 'capybara'
+  gem 'webdrivers'
 end
 
 group :development do

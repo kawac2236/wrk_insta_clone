@@ -10,7 +10,7 @@ ja:
         name: 'ユーザー名'
         email:  'メールアドレス'
         password: 'パスワード'
-        password_confirmation:  'パウワード確認'
+        password_confirmation:  'パスワード確認'
         avatar: 'アバター'
         notification_on_comment: 'コメント時の通知メール'
         notification_on_follow: 'フォロー時の通知メール'

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  describe "バリデーション" do
+  describe 'バリデーション' do
     it '画像は必須であること' do
       post = build(:post, images: nil)
       post.valid?
@@ -21,11 +21,11 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  describe "スコープ" do
+  describe 'スコープ' do
     describe 'content_contain' do
-      let!(:post) { create(:post, content: 'hello world')}
-      subject { Post.content_contain('hello')}
-      it { is_expected.to include post}
+      let!(:post) { create(:post, content: 'hello world') }
+      subject { Post.content_contain('hello') }
+      it { is_expected.to include post }
     end
   end
 end

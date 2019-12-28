@@ -1,4 +1,4 @@
-.card.mb-3.post
+.card.mb-3.post id="post-#{post.id}"
   .card-header
     .d-flex.align-items-center
       = link_to user_path(post.user) do
@@ -6,9 +6,9 @@
         = post.user.name
       - if current_user&.own?(post)
         .ml-auto
-          = link_to post_path(post), method: :delete , data: { confirm: '本当に削除しますか？' }
+          = link_to post_path(post), class: 'delete-button', method: :delete , data: { confirm: '本当に削除しますか？' }
             = icon 'far', 'trash-alt', class: 'fa-lg'
-          = link_to edit_post_path(post) do
+          = link_to edit_post_path(post), class: 'edit-button' do
             = icon 'far', 'edit', class: 'fa-lg'
       - if current_user && !current_user.own?(post)
         .ml-auto

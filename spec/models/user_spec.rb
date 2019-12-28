@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe "バリデーション" do
+  describe 'バリデーション' do
     it 'ユーザー名は必須であること' do
       user = build(:user, name: nil)
       user.valid?
@@ -29,13 +29,13 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "インスタンスメソッド" do
+  describe 'インスタンスメソッド' do
     let(:user_a) { create(:user) }
     let(:user_b) { create(:user) }
     let(:user_c) { create(:user) }
-    let(:post_by_user_a) { create(:post, user: user_a)}
-    let(:post_by_user_b) { create(:post, user: user_b)}
-    let(:post_by_user_c) { create(:post, user: user_c)}
+    let(:post_by_user_a) { create(:post, user: user_a) }
+    let(:post_by_user_b) { create(:post, user: user_b) }
+    let(:post_by_user_c) { create(:post, user: user_c) }
     describe 'own?' do
       it '自分のオブジェクトの場合trueを返す' do
         expect(user_a.own?(post_by_user_a)).to be true
@@ -56,25 +56,25 @@ RSpec.describe User, type: :model do
       end
     end
 
-    describe "like" do
+    describe 'like' do
       it 'いいねできること' do
-        expect { user_a.like(post_by_user_b) }.to change {Like.count}.by(1)
+        expect { user_a.like(post_by_user_b) }.to change { Like.count }.by(1)
       end
 
       it 'いいねを解除できること' do
         user_a.like(post_by_user_b)
-        expect { user_a.unlike(post_by_user_b) }.to change {Like.count}.by(-1)
+        expect { user_a.unlike(post_by_user_b) }.to change { Like.count }.by(-1)
       end
     end
 
-    describe "follow" do
+    describe 'follow' do
       it 'フォローできること' do
-        expect { user_a.follow(user_b)}.to change {Relationship.count}.by(1)
+        expect { user_a.follow(user_b) }.to change { Relationship.count }.by(1)
       end
 
       it 'フォロー解除できること' do
         user_a.follow(user_b)
-        expect { user_a.unfollow(user_b)}.to change {Relationship.count}.by(-1)
+        expect { user_a.unfollow(user_b) }.to change { Relationship.count }.by(-1)
       end
 
       it 'フォローしている場合trueを返す' do

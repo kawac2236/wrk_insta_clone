@@ -19,6 +19,7 @@ class UsersController < ApplicationController
       redirect_to login_path
     else
       # 失敗したとき
+      flash[:success] = '登録に失敗しました'
       render :new
     end
   end
