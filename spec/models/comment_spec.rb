@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  describe "バリデーション" do
-
+  describe 'バリデーション' do
     it '本文は必須であること' do
       comment = build(:comment, content: nil)
       comment.valid?
