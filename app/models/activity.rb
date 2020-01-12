@@ -7,7 +7,7 @@
 #  subject_id   :bigint
 #  user_id      :bigint
 #  action_type  :integer          not null
-#  read         :boolean          default(FALSE), not null
+#  read         :boolean          default("unread"), not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
@@ -24,17 +24,17 @@ class Activity < ApplicationRecord
 
   # アクション区分
   enum action_type: {
-    commented_to_own_post:  0, # コメント
-    liked_to_own_post:      1, # いいね
-    followed_me:            2  # フォロー
+    commented_to_own_post: 0, # コメント
+    liked_to_own_post: 1, # いいね
+    followed_me: 2 # フォロー
   }
   # 既読区分
   enum read: {
-    unread: false,  # 未読
-    read:   true    # 既読
+    unread: false, # 未読
+    read: true # 既読
   }
 
-  scope :recent, -> (count) { all.limit(count).order(:created_at) }
+  scope :recent, ->(count) { all.limit(count).order(:created_at) }
 
   # リダイレクト先
   def redirect_path

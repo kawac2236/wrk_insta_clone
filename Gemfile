@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'mini_racer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -53,9 +53,14 @@ gem 'faker'
 # 画像アップロード
 gem 'carrierwave'
 gem 'mini_magick'
-
+# 定数管理
+gem 'config'
 # ページネーション
 gem 'kaminari'
+# 非同期処理
+gem 'sidekiq'
+# ダッシュボードを利用するため
+gem 'sinatra', require: false
 
 gem 'jquery-rails'
 gem 'bootstrap', '>= 4.3.1'
@@ -72,6 +77,11 @@ group :development, :test do
   gem 'pry-byebug'
   # テストにはRSpecを利用する
   gem 'rspec-rails', '~> 3.8.0'
+  # fixture
+  gem 'factory_bot_rails'
+  # 統合テスト
+  gem 'capybara'
+  gem 'webdrivers'
 end
 
 group :development do
@@ -88,6 +98,20 @@ group :development do
   gem 'binding_of_caller'
   # テスト時間を短くする
   gem 'spring-commands-rspec'
+  # メールのローカル確認
+  gem 'letter_opener_web'
+  # デプロイ
+  gem 'capistrano'
+  # capistranoに必要な依存関係
+  gem 'ed25519', '>= 1.2', '< 1.3'
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
+  # 関連するgem
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-nginx'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

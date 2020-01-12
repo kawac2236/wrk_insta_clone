@@ -2,14 +2,17 @@
 #
 # Table name: users
 #
-#  id               :bigint           not null, primary key
-#  name             :string(255)      not null
-#  email            :string(255)      not null
-#  crypted_password :string(255)
-#  salt             :string(255)
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
-#  avatar           :string(255)
+#  id                      :bigint           not null, primary key
+#  name                    :string(255)      not null
+#  email                   :string(255)      not null
+#  crypted_password        :string(255)
+#  salt                    :string(255)
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  avatar                  :string(255)
+#  notification_on_comment :boolean          default(TRUE), not null
+#  notification_on_follow  :boolean          default(TRUE), not null
+#  notification_on_like    :boolean          default(TRUE), not null
 #
 # Indexes
 #
@@ -29,9 +32,9 @@ class User < ApplicationRecord
   has_many :passive_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followed, through: :passive_relationships, source: :following
-  
+
   authenticates_with_sorcery!
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, uniqueness: true, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true,
                     length: { maximum: 255 },
@@ -43,7 +46,7 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   # randomにcount件数分取得
-  scope :randoms, -> (count) { all.sample(count) }
+  scope :randoms, ->(count) { all.sample(count) }
 
   # objectのユーザーIDと自分のIDを比較
   def own?(object)
@@ -77,7 +80,7 @@ class User < ApplicationRecord
   end
 
   def feed
-    Post.where(user_id: following_ids << id )
+    Post.where(user_id: following_ids << id)
   end
 
   def myself?(user)

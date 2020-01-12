@@ -1,9 +1,14 @@
 class RelationshipsController < ApplicationController
   before_action :require_login, only: %i[create destroy]
-  
+
   def create
     @user = User.find(params[:followed_id])
-    current_user.follow(@user)
+    if current_user.follow(@user) && @user.notification_on_follow?
+      UserMailer.with(
+        user_from: current_user,
+        user_to: @user
+      ).follow_user.deliver_later
+    end
   end
 
   def destroy

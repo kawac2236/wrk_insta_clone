@@ -6,13 +6,12 @@ class PostsController < ApplicationController
   def index
     # 作成時刻の降順で表示
     @posts = if current_user
-              current_user.feed.includes(:user).order(created_at: :desc).page(params[:page])
-            else
-              Post.all.includes(:user).order(created_at: :desc).page(params[:page])
-            end
+               current_user.feed.includes(:user).order(created_at: :desc).page(params[:page])
+             else
+               Post.all.includes(:user).order(created_at: :desc).page(params[:page])
+              end
     # ランダムに5件のユーザーを取得
     @random_users = User.randoms(5)
-
   end
 
   def show

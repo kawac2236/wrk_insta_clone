@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all.page(params[:page])
   end
-  
+
   def show
     @user = User.find(params[:id])
   end
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
       redirect_to login_path
     else
       # 失敗したとき
+      flash[:success] = '登録に失敗しました'
       render :new
     end
   end
