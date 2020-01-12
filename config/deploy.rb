@@ -6,7 +6,8 @@ set :user, 'kawac'
 set :deploy_to, "/var/www/wrk_insta_clone"
 set :linked_files, %w[config/master.key config/database.yml]
 set :linked_dirs, %w[log tmp/pids tmp/cache tmp/sockets public/system vendor/bundle]
-set :rbenv_ruby, File.read('.ruby-version').strip
+# set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_path, '$HOME/deploy/.rbenv' 
 set :puma_threds, [4, 16]
 set :puma_workers, 0
 set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"
