@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "bootstrap-material-design": "^4.1.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "material-design-icons": "^3.0.1",
     "rails-ujs": "^5.2.3",
     "swiper": "^5.1.0"
