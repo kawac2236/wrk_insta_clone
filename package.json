@@ -6,6 +6,6 @@
     "jquery": "^3.4.1",
     "material-design-icons": "^3.0.1",
     "rails-ujs": "^5.2.3",
-    "swiper": "^5.1.0"
+    "swiper": "^6.5.1"
   }
 }
